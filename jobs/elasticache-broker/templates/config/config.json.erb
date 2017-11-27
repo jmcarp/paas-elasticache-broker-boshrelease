@@ -1,0 +1,12 @@
+{
+  "broker_name": "<%= p('elasticache-broker.broker_name') %>",
+  "username": "<%= p('elasticache-broker.broker_username') %>",
+  "password": "<%= p('elasticache-broker.broker_password') %>",
+  "auth_token_seed": "<%= p('elasticache-broker.auth_token_seed') %>",
+  "region": "<%= p('elasticache-broker.region') %>",
+  "cache_subnet_group_name": "<%= p('elasticache-broker.cache_subnet_group_name') %>",
+  "vpc_security_group_ids": <%= JSON.dump(p('elasticache-broker.vpc_security_group_ids')) %>,
+  "catalog": <%= JSON.dump(p('elasticache-broker.catalog')) %>,
+  "plan_configs": <%= JSON.dump(p('elasticache-broker.plan_configs')) %>,
+  "log_level": "<%= p('elasticache-broker.log_level') %>"
+}

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+
+# Setup common env vars and folders
+source /var/vcap/packages/bosh-helpers/ctl_setup.sh 'elasticache-broker'
+export ELASTICACHE_BROKER_PID_FILE=${ELASTICACHE_BROKER_PID_DIR}/elasticache-broker.pid
+
+case $1 in
+
+  start)
+    pid_guard ${ELASTICACHE_BROKER_PID_FILE} ${JOB_NAME}
+    echo $$ > ${ELASTICACHE_BROKER_PID_FILE}
+
+    # Start ElastiCache Broker service
+    exec /var/vcap/packages/elasticache-broker/bin/elasticache-broker \
+      -port ${ELASTICACHE_BROKER_PORT} \
+      -config ${ELASTICACHE_BROKER_CONF_DIR}/config.json \
+      > >(tee -a ${ELASTICACHE_BROKER_LOG_DIR}/${OUTPUT_LABEL}.stdout.log | logger -t vcap.${OUTPUT_LABEL}.stdout) \
+      2> >(tee -a ${ELASTICACHE_BROKER_LOG_DIR}/${OUTPUT_LABEL}.stderr.log | logger -t vcap.${OUTPUT_LABEL}.stderr)
+    ;;
+
+  stop)
+    # Stop ElastiCache Broker service
+    kill_and_wait ${ELASTICACHE_BROKER_PID_FILE}
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+
+esac
+exit 0
