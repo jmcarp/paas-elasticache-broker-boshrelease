@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+#
+# ElastiCache Broker properties
+#
+
+export ELASTICACHE_BROKER_CONF_DIR=${JOB_DIR}/config
+export ELASTICACHE_BROKER_LOG_DIR=${LOG_DIR}
+export ELASTICACHE_BROKER_PID_DIR=${RUN_DIR}
+export ELASTICACHE_BROKER_STORE_DIR=${STORE_DIR}
+export ELASTICACHE_BROKER_TMP_DIR=${TMP_DIR}
+export ELASTICACHE_BROKER_PORT="<%= p('elasticache-broker.port') %>"

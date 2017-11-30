@@ -1,0 +1,3 @@
+[submodule "src/github.com/alphagov/paas-elasticache-broker"]
+	path = src/github.com/alphagov/paas-elasticache-broker
+	url = https://github.com/alphagov/paas-elasticache-broker
