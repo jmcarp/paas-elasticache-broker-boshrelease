@@ -1,0 +1,30 @@
+name: elasticache-broker
+version: "1"
+commit_hash: b236e40
+uncommitted_changes: true
+jobs:
+- name: elasticache-broker
+  version: c4f0ccf0ab0b5cf0253c391c453bccc1b6300f2a
+  fingerprint: c4f0ccf0ab0b5cf0253c391c453bccc1b6300f2a
+  sha1: f1c32743bd683ce7650e42255ee4ea8e219becd0
+packages:
+- name: bosh-helpers
+  version: f469b9d9cd643a3e706ca661deea572de6e522b4
+  fingerprint: f469b9d9cd643a3e706ca661deea572de6e522b4
+  sha1: cb816fefecf0b8f6126ca52856b4652bf11063d8
+  dependencies: []
+- name: elasticache-broker
+  version: ad9ea166d3ec4d9dc5ae29cfa5ad10d2347e4927
+  fingerprint: ad9ea166d3ec4d9dc5ae29cfa5ad10d2347e4927
+  sha1: 20025c7b6969adb74d0b271cff07fb9d5e33240e
+  dependencies:
+  - golang
+- name: golang
+  version: 821c8287eebb0864b68c1205416afcb13fe8b096
+  fingerprint: 821c8287eebb0864b68c1205416afcb13fe8b096
+  sha1: 01b1108f9d21b709ffc6f5450259215420573960
+  dependencies: []
+license:
+  version: 7640de987c6d15fbd8529476db425487324ded79
+  fingerprint: 7640de987c6d15fbd8529476db425487324ded79
+  sha1: 61abe9ef2fb673ce8c93806a491338e67f9e0f19
